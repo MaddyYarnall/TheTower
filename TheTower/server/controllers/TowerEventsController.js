@@ -8,12 +8,12 @@ export class TowerEventsController extends BaseController {
   constructor() {
     super('api/events')
     this.router
-      .get('')
       .get('/:eventId', this.getByEventId)
       .get('/:eventId/comments', this.getAllComments)
       .get('/:eventId/attendees', this.getEventAttendees)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.create)
+      .put('/:eventId', this.edit)
       .delete('/:eventId', this.remove)
   }
   async getEventAttendees(req, res, next) {
@@ -66,7 +66,7 @@ export class TowerEventsController extends BaseController {
   async edit(req, res, next) {
     try {
       req.body.creatorId = req.userInfo.id
-      const editedEvent = await towerEventsService.edit(req.params.id, req.body)
+      const editedEvent = await towerEventsService.edit(req.params.eventId, req.body)
       res.send(editedEvent)
     } catch (error) {
       next(error)

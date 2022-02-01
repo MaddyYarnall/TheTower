@@ -30,22 +30,21 @@
   </div>
   <div class="container-fluid">
     <div class="row d-flex justify-content-center">
-      <div class="col-md-3 mt-3 mx-4">
-        <div class="card selectable eventcard">
-          <div class="text-block">
-            <h4 class="text-center">THE EVENT</h4>
-            <p class="px-2">March 11 at the Ford Idaho Center</p>
-            <p class="text-end px-2">200 Spots Remaining</p>
-          </div>
-        </div>
-      </div>
+      <TowerEvent v-for="t in towerEvents" :key="t.id" :towerEvent="t" />
     </div>
   </div>
 </template>
 
 <script>
+import { computed } from '@vue/reactivity'
+import { AppState } from '../AppState.js'
 export default {
-  name: 'Home'
+  name: 'Home',
+  setup() {
+    return {
+      towerEvents: computed(() => AppState.towerEvents)
+    }
+  }
 }
 </script>
 

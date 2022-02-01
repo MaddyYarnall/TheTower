@@ -25,10 +25,12 @@ class TowerEventsService {
   }
 
   async edit(towerEventId, userId) {
+    // FIXME userId is not a user id from the controller, its a body with a user id
     const towerEvent = await this.getByTowerEventsId(towerEventId)
     if (towerEvent.creatorId.toString() !== userId) {
       throw new BadRequest('Unable to edit/soft delete event')
     }
+    // FIXME need to be able to edit everything but canceled here
     towerEvent.isCanceled = towerEvent.isCanceled || towerEvent.isCanceled
   }
   // TODO method for update
