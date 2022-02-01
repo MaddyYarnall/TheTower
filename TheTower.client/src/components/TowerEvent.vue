@@ -1,6 +1,6 @@
 <template>
   <div class="col-md-3 mt-3 mx-4">
-    <div class="card selectable eventcard">
+    <div class="card selectable eventcard" @click="goToEventDetails()">
       <div class="text-block">
         <h4 class="text-center">{{ towerEvent.name }}</h4>
         <p class="px-2">{{ towerEvent.date }} at {{ towerEvent.location }}</p>
@@ -13,10 +13,24 @@
 
 
 <script>
+import { useRouter } from 'vue-router'
 export default {
-  props: { towerEvent: { type: Object, required: true } },
-  setup() {
-    return {}
+  props: {
+    towerEvent: {
+      type: Object,
+      required: true,
+    },
+  },
+  setup(props) {
+    const router = useRouter();
+    return {
+      goToEventDetails() {
+        router.push({
+          name: 'TowerEvent',
+          params: { id: props.towerEvent.id }
+        })
+      }
+    }
   }
 }
 </script>
