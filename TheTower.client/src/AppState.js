@@ -14,5 +14,6 @@ export const AppState = reactive({
   user: {},
   account: {},
   towerEvent: [],
-  activeEvent: {}
+  activeEvent: {},
+  eventAttendees: []
 })

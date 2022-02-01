@@ -60,15 +60,25 @@
           type="number"
           min="1"
           placeholder="Capacity..."
+          v-model="newEvent.capacity"
           required="true"
           class="border border-info border-2 m-3"
         />
         <input
           type="text"
           placeholder="Image..."
+          v-model="newEvent.coverImg"
           required="true"
           class="border border-info border-2 m-3"
         />
+        <div>
+          <select v-model="newEvent.type" required="true">
+            <option disabled value="">Please select one</option>
+            <option>concert</option>
+            <option>event</option>
+            <option>convention</option>
+          </select>
+        </div>
         <div>
           <button type="submit" class="btn btn-outline-info">
             Create Event!
@@ -98,7 +108,7 @@ export default {
             params: { id }
           })
         } catch (error) {
-
+          console.log(error)
         }
       }
     }
