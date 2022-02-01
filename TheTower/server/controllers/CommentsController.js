@@ -12,7 +12,6 @@ export class CommentsController extends BaseController {
       .delete('/:commentId', this.remove)
   }
 
-  //hello
   async create(req, res, next) {
     try {
       req.body.creatorId = req.userInfo.id
