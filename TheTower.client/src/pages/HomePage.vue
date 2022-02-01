@@ -21,9 +21,7 @@
           <p class="p-2 selectable">Sports</p>
           <p class="p-2 selectable">Conventions</p>
           <p class="p-2 selectable">Exhibits</p>
-          <button class="btn btn-outline-secondary btn-small">
-            + New Event
-          </button>
+          <NewEventForm />
         </div>
       </div>
     </div>
@@ -38,9 +36,22 @@
 <script>
 import { computed } from '@vue/reactivity'
 import { AppState } from '../AppState.js'
+import { onMounted } from '@vue/runtime-core'
+import Pop from '../utils/Pop.js'
+import { logger } from '../utils/Logger.js'
+import { api } from '../services/AxiosService.js'
+import { towerEventService } from '../services/TowerEventService.js'
 export default {
   name: 'Home',
   setup() {
+    onMounted(async () => {
+      try {
+        await towerEventService.getEvents()
+      } catch (error) {
+        Pop.toast(error.message, 'Error')
+        logger.log(error)
+      }
+    })
     return {
       towerEvents: computed(() => AppState.towerEvents)
     }

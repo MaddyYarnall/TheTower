@@ -8,6 +8,7 @@ export class TowerEventsController extends BaseController {
   constructor() {
     super('api/events')
     this.router
+      .get('', this.getAll)
       .get('/:eventId', this.getByEventId)
       .get('/:eventId/comments', this.getAllComments)
       .get('/:eventId/attendees', this.getEventAttendees)

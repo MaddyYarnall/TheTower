@@ -2,6 +2,7 @@
   <div class="col-md-3 mt-3 mx-4">
     <div class="card selectable eventcard" @click="goToEventDetails()">
       <div class="text-block">
+        <img :src="towerEvent.coverImg" alt="Event Image" class="coverimg" />
         <h4 class="text-center">{{ towerEvent.name }}</h4>
         <p class="px-2">{{ towerEvent.date }} at {{ towerEvent.location }}</p>
         <p class="text-end px-2">{{ towerEvent.capacity }} Spots Remaining</p>
@@ -37,4 +38,8 @@ export default {
 
 
 <style lang="scss" scoped>
+.coverimg {
+  max-height: 200px;
+  max-width: 100%;
+}
 </style>

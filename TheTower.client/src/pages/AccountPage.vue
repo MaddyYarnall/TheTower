@@ -10,34 +10,6 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid">
-    <div class="row d-flex justify-content-center mx-4 my-4">
-      <div class="col-md-4">
-        <div class="card yourevent">
-          <div class="text-block">
-            <h3 class="text-center">The Event</h3>
-            <p class="p-2">March 11th, 2022 at the Ford Idaho Center</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card yourevent2">
-          <div class="text-block">
-            <h3 class="text-center">The Event</h3>
-            <p class="p-2">March 11th, 2022 at the Ford Idaho Center</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card yourevent3">
-          <div class="text-block">
-            <h3 class="text-center">The Event</h3>
-            <p class="p-2">March 11th, 2022 at the Ford Idaho Center</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>

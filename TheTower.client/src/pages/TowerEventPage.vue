@@ -3,9 +3,10 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <p>Testing the card</p>
-          <p>the event</p>
-          <p>The event description</p>
+          <img :src="towerEvent.coverImg" alt="Event Image" class="coverimg" />
+          <h2>{{ towerEvent.name }}</h2>
+          <h5>{{ towerEvent.startDate }} {{ towerEvent.location }}</h5>
+          <p>{{ towerEvent.description }}</p>
         </div>
       </div>
     </div>
@@ -41,4 +42,8 @@ export default {
 
 
 <style lang="scss" scoped>
+.coverimg {
+  max-height: 200px;
+  max-width: 100%;
+}
 </style>
