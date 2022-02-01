@@ -26,7 +26,6 @@ export class CommentsController extends BaseController {
 
   async remove(req, res, next) {
     try {
-      // this is a comment in the comments 
       await commentsService.remove(req.params.commentId, req.userInfo.id)
       return res.send('Comment has been deleted!')
     } catch (error) {
