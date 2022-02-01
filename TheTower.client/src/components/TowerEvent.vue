@@ -3,8 +3,9 @@
     <div class="card selectable eventcard">
       <div class="text-block">
         <h4 class="text-center">{{ towerEvent.name }}</h4>
-        <p class="px-2">March 11 at the Ford Idaho Center</p>
-        <p class="text-end px-2">200 Spots Remaining</p>
+        <p class="px-2">{{ towerEvent.date }} at {{ towerEvent.location }}</p>
+        <p class="text-end px-2">{{ towerEvent.capacity }} Spots Remaining</p>
+        <!-- <img src="towerEvent.imgUrl" alt="" /> -->
       </div>
     </div>
   </div>
