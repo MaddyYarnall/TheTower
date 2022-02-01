@@ -9,8 +9,9 @@ class AttendeesService {
     AppState.eventAttendees = res.data
   }
 
-  async attendEvent(eventId) {
-    const res = await api.post('api/events/' + eventId)
+  async attendEvent(newAttendee) {
+    logger.log('eventId in attend', newAttendee)
+    const res = await api.post('api/attendees', newAttendee)
     logger.log('attended event', res.data)
   }
 }

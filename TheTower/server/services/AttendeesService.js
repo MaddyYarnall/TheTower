@@ -7,12 +7,12 @@ class AttendeesService {
     await attendEvent.populate('account', 'name picture')
     await attendEvent.populate('event')
     // find an event, change the capacity on that event, and save that event
-    const event = await dbContext.TowerEvents.findById(newAttendee.eventId)
-    if (event.capacity == 0) {
+    const towerEvent = await dbContext.TowerEvents.findById(newAttendee.eventId)
+    if (towerEvent.capacity == 0) {
       throw new BadRequest('Capacity is full')
     }
-    event.capacity -= 1
-    await event.save()
+    towerEvent.capacity -= 1
+    await towerEvent.save()
     return attendEvent
 
   }
